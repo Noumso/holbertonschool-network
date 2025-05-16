@@ -1,0 +1,137 @@
+# What Happens When You Type `https://www.google.com` and Press Enter?
+
+> *"It’s just a Google search."*  
+> But beneath that simple action lies a deep, powerful chain of network interactions.  
+> This article breaks down what really happens at every layer of the stack — from your keyboard to Google's servers — and back.
+
+---
+
+## 🧭 1. DNS Resolution
+
+The process starts when your browser needs to translate `www.google.com` into an IP address.
+
+1. **Browser cache** is checked first.
+2. If not found, it asks the **OS**, which queries the configured **DNS resolver** (e.g., your ISP or `8.8.8.8`).
+3. The resolver performs a **recursive lookup**:
+   - **Root server** → points to `.com` TLD server
+   - **TLD server** → points to `google.com` name servers
+   - **Authoritative server** → returns the IP (e.g., `142.250.190.4`)
+
+✅ **Now we have the IP address.**
+
+---
+
+## 🌐 2. TCP/IP: Making the Connection
+
+Next, your system needs to **establish a connection** to the server over the Internet.
+
+- A **TCP 3-way handshake** happens:
+- TCP ensures **reliable, ordered delivery**.
+- IP handles **routing across networks** using the destination IP and your public IP.
+
+Your request is now headed toward Google’s infrastructure.
+
+---
+
+## 🔥 3. Firewall Checks
+
+Along the path, the request passes through **multiple firewalls**:
+
+- **Client-side firewall**: Allows outgoing requests (usually).
+- **Corporate or ISP firewalls**: May inspect or block traffic.
+- **Google’s firewalls**: Permit traffic only on expected ports (e.g., 443) and may rate-limit or block abuse.
+
+Firewalls help secure both ends of the connection.
+
+---
+
+## 🔐 4. HTTPS & TLS Encryption
+
+Since the URL starts with `https://`, your browser initiates a **secure SSL/TLS handshake**.
+
+- The server presents its **SSL certificate** (e.g., from DigiCert).
+- The browser:
+- **Validates** the certificate (checking the CA and expiration).
+- **Agrees** on an encryption algorithm.
+- **Exchanges keys** using asymmetric encryption.
+- A **symmetric session key** is established for speed and security.
+
+🔒 All future data is encrypted and secure.
+
+---
+
+## 🎯 5. Load Balancer
+
+Now your request hits **Google's global infrastructure**, which uses **load balancing** to:
+
+- Distribute traffic to **healthy, low-latency servers**.
+- Handle **millions of concurrent users** efficiently.
+- Redirect traffic regionally to **edge servers** or **data centers**.
+
+You might be routed to a server just miles from your location — even though it all looks like one "Google" to you.
+
+---
+
+## ⚙️ 6. Web Server
+
+The selected server runs a **web server** (e.g., Nginx or Google’s own optimized server).
+
+- Parses the **HTTP request**
+- Handles **routing**, **compression**, and **headers**
+- Forwards the request to the appropriate **backend service**
+
+The web server acts as the **front gate** of Google’s backend system.
+
+---
+
+## 🧠 7. Application Server
+
+Behind the web server is the **application logic**.
+
+- Validates your **query input**
+- Manages your **session and cookies**
+- Coordinates with internal **microservices** (search ranking, language detection, ads, etc.)
+
+Each part is highly optimized and scaled — built to handle billions of requests every day.
+
+---
+
+## 🗄️ 8. Database Systems
+
+Finally, the application server queries several **backends**:
+
+- **Search indexes** (custom-built distributed DBs like Bigtable or Spanner)
+- **User profile data**
+- **Geolocation services**
+- **Real-time trending data**
+
+The results are aggregated, scored, ranked, and returned as a final response.
+
+---
+
+## 📦 Response and Rendering
+
+Your browser receives a response — usually HTML, with some JavaScript and CSS.
+
+- The **HTML** is parsed into a DOM tree.
+- **CSS** is applied to style elements.
+- **JavaScript** is executed to enable interactivity.
+- The page renders — and you see the Google homepage.
+
+All of this happens in a few hundred milliseconds.
+
+---
+
+## 🧠 Conclusion
+
+What seems like a single click is actually a **multi-step dance of internet protocols, distributed systems, encryption, and logic** — working seamlessly.
+
+Knowing this process is essential for:
+- Full-stack engineers
+- Site reliability engineers (SRE)
+- Infrastructure specialists
+- Anyone serious about web performance or security
+
+> 💬 *Next time you Google something, you’ll know just how much tech made it possible.*
+
+---
