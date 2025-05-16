@@ -16,8 +16,6 @@ This repository contains a technical blog post that explains the full journey of
 ## 📝 Blog Post
 
 You can read the full article here:  
-🔗 [https://medium.com/@yourusername/what-happens-when-you-type-google-com-and-press-enter](https://medium.com/@yourusername/what-happens-when-you-type-google-com-and-press-enter)
-
-> *(Replace the link above with your actual Medium or LinkedIn URL once published)*
+https://medium.com/@noumane.82300/what-happens-when-you-type-https-www-google-com-and-press-enter-564321d0f528
 
 ---
