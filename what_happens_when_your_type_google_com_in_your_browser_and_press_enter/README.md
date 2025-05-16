@@ -16,6 +16,6 @@ This repository contains a technical blog post that explains the full journey of
 ## 📝 Blog Post
 
 You can read the full article here:  
-https://medium.com/@noumane.82300/what-happens-when-you-type-https-www-google-com-and-press-enter-564321d0f528
+https://medium.com/@noumane.82300/what-happens-when-you-type-https-www-google-com-and-press-enter-303fa7c0b6dd
 
 ---
